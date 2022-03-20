@@ -7,9 +7,13 @@ const app = express();
 
 //middleware
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // import path module
 const path = require('path');
+// import fs library
+const fs = require('fs');
 
 // serve html file
 app.get('/', (req, res)=> {
@@ -24,6 +28,51 @@ app.get('/notes', (req, res) => {
 // handle request for notes(db.json)
 app.get('/api/notes', (req, res) => {
     res.json(notes);
+});
+
+
+// handle posts
+app.post('/api/notes', (req,res) => {
+    const { title, text } = req.body;
+    
+
+    if (title && text) {
+        const newNote = {
+            title,
+            text,
+        };
+
+        fs.readFile('./db/db.json', 'utf8', (err,data) => {
+            if (err) {
+                console.error(err);
+            } else {
+                const parsedNotes = JSON.parse(data);
+    
+                parsedNotes.push(newNote);
+    
+                fs.writeFile(
+                    './db/db.json',
+                    JSON.stringify(parsedNotes, null, 2),
+                    (writeErr) => 
+                    writeErr
+                    ? console.error(writeErr)
+                    : console.info('Successfully updated notes!')
+                );
+            }   
+        });
+
+        //updateNotes();
+
+        const response = {
+            status: 'success',
+            body: newNote,
+        };
+
+        console.log(response);
+        res.json(response);
+     } else {
+        res.json('Error in posting note');
+    }    
 });
 
 // wildcard route redirects to homepage
