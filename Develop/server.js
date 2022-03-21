@@ -5,6 +5,9 @@ const notes = require('./db/db');
 const express = require('express');
 const app = express();
 
+// port variable
+const PORT = process.env.PORT || 3001;
+
 //middleware
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
@@ -61,8 +64,6 @@ app.post('/api/notes', (req,res) => {
             }   
         });
 
-        //updateNotes();
-
         const response = {
             status: 'success',
             body: newNote,
@@ -81,6 +82,6 @@ app.get('*', (req, res) => {
 });
 
 // make server listen for requests
-app.listen(3001, () => {
-    console.log(`API server now on port 3001!`);
-})
+app.listen(PORT, () => {
+    console.log(`API server now on port ${PORT}!`);
+});
