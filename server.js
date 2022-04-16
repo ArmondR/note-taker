@@ -1,6 +1,8 @@
 // import notes json file
 const notes = require('./db/db');
 
+const { v4: uuidv4 } = require('uuid');
+
 // import express package & instantiate server
 const express = require('express');
 const app = express();
@@ -36,13 +38,14 @@ app.get('/api/notes', (req, res) => {
 
 // handle posts
 app.post('/api/notes', (req,res) => {
-    const { title, text } = req.body;
-    
 
+   const {title, text } = req.body;
+    
     if (title && text) {
         const newNote = {
             title,
             text,
+            note_id: uuidv4(),
         };
 
         fs.readFile('./db/db.json', 'utf8', (err,data) => {
@@ -80,6 +83,12 @@ app.post('/api/notes', (req,res) => {
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
+
+// // delete specific note
+// app.delete("/api/notes/:id", (req, res) => {
+    
+//     console.log("Note deleted");
+// });
 
 // make server listen for requests
 app.listen(PORT, () => {

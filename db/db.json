@@ -1,18 +1,7 @@
 [
   {
-    "title": "Test Title",
-    "text": "Test text"
-  },
-  {
-    "title": "new",
-    "text": "new"
-  },
-  {
-    "title": "news",
-    "text": "note"
-  },
-  {
-    "title": "new note 1",
-    "text": "notes"
+    "title": "uuid test",
+    "text": "test",
+    "note_id": "81c09ee9-5098-44a2-9dad-06543687b93f"
   }
 ]

@@ -4,14 +4,13 @@
 
 This application is a note taker app. With the use of node.js, express.js and code terminal, the user is presented with a note recording application.
 
-##  Future Development
+## Future Development
 
-In future development of this application I would like to finish the functioonality of the overall application. The application still needs functionality to query saved notes.
+In future development of this application I would like to finish the functionality of the overall application. The application still needs functionality to query saved notes.
 
-##  Usage 
+## Usage
 
 The application is deployed via heroku server and the link is provided below or opened via localhost:3001 from local network.
-
 
 ## Links
 
@@ -23,10 +22,9 @@ The application is deployed via heroku server and the link is provided below or 
 
 ![Application](note-taker-scrnsht.png)
 
-
 ### License
 
-______
+---
 
 MIT License
 
@@ -52,6 +50,6 @@ SOFTWARE.
 
 ### Badges
 
-____
+---
 
 ![](https://img.shields.io/badge/license-MIT-green)
