@@ -10,14 +10,14 @@ In future development of this application I would like to finish the functioonal
 
 ##  Usage 
 
-The application is deployed via heroku server and the link is provided below.
+The application is deployed via heroku server and the link is provided below or opened via localhost:3001 from local network.
 
 
 ## Links
 
 [Link to Application Repository](https://github.com/ArmondR/note-taker)
 
-[Deployed Application](https://arcane-wave-43881.herokuapp.com/)
+<!-- [Deployed Application](https://arcane-wave-43881.herokuapp.com/) -->
 
 ## Screenshot
 
